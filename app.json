@@ -5,7 +5,7 @@
   "success_url": "/",
   "env": {
     "SENDGRID_API_KEY": {
-      "description": "SendGrid API Key can be created at https://app.sendgrid.com/settings/api_keys",
+      "description": "SendGrid API keys can be created at https://app.sendgrid.com/settings/api_keys",
       "required": true
     }
   },
