@@ -25,17 +25,53 @@ def mail():
             return "Status Code: " + str(response.status_code)
     else:
         return """
-        <html>
-           <body>
-              <form method = "POST">
-                 <p>From: <input type = "text" name = "from_email" value="test@example.com" style="width: 500px;" /></p>
-                 <p>To: <input type = "text" name = "to_email" value="test@example.com" style="width: 500px;" /></p>
-                 <p>Subject: <input type = "text" name = "subject" value="Sending with SendGrid is Fun" style="width: 500px;" /></p>
-                 <p>Content: <input type ="text" name = "content" value="and easy to do anywhere, even with Python" style="width: 500px;" /></p>
-                 <p><input type = "submit" value = "send email" /></p>
-              </form>
-           </body>
-        </html>
+          <html>
+            <head>
+              <title>Sendgrid Flask Heroku</title>
+              <!-- bootstrap 4 sources for quick CSS -->
+              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+              <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+            </head>
+            <body>
+              <div class="container">
+
+                <div class="page-header">
+                  <h1>Sendgrid Flask Heroku</h1>
+                </div>
+                <hr>
+
+                <form method = "POST" class="form-horizontal">
+                  <div class="form-group row">
+                    <label for="from_email" class="col-sm-2 col-form-label">From: </label>
+                    <input type="text" name="from_email" placeholder="from@example.com" class="form-control col-sm-10" required/>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="to_email" class="col-sm-2 col-form-label">To:</label>
+                    <input type="text" name="to_email" placeholder="to@example.com" class="form-control col-sm-10" required>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="subject" class="col-sm-2 col-form-label">Subject:</label>
+                    <input type="text" name="subject" placeholder="Sending with SendGrid is Fun" class="form-control col-sm-10" required>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="content" class="col-sm-2 col-form-label">Message:</label>
+                    <textarea id="content" rows="5" placeholder="and easy to do anywhere, even with Python" class="form-control col-sm-10" required></textarea>
+                  </div>
+
+                  <div class="form-group row">
+                    <div class="offset-sm-2 col-sm-10">
+                      <button type="submit" class="btn btn-primary">Send Email</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </body>
+          </html>
         """
 
 
