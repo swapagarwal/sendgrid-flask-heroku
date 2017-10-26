@@ -1,0 +1,38 @@
+body {
+    font-family: Tahoma, Verdana, Helvetica, sans;
+}
+
+.form-wrapper {
+    margin: 80px auto;
+    max-width: 500px;
+    width: 90%;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.button, .text-field {
+    padding: 8px 12px;
+    border: 1px solid #777;
+    border-radius: 2px;
+}
+
+.text-field {
+    max-width: 500px;
+    width: 100%;
+    border: 1px solid #777;
+    border-radius: 2px;
+}
+
+.button {
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+}
+
+.button:hover {
+    background-color: #ccc;
+    transition: background-color 300ms ease;
+}

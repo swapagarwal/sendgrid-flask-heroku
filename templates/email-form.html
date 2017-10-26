@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Send Grid Flask Heroku</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="form-wrapper">
+    <form method="POST">
+        <p>
+            <label for="from_email" class="form-label">From:</label>
+            <input type="text" name="from_email" id="from_email" value="test@example.com" class="text-field">
+        </p>
+        <p>
+            <label for="to_email" class="form-label">To:</label>
+            <input type="text" name="to_email" id="to_email" value="test@example.com" class="text-field">
+        </p>
+        <p>
+            <label for="subject" class="form-label">Subject:</label>
+            <input type="text" name="subject" id="subject" value="Sending with SendGrid is Fun" class="text-field">
+        </p>
+        <p>
+            <label for="content" class="form-label">Content:</label>
+            <input type="text" name="content" id="content" value="and easy to do anywhere, even with Python"
+                   class="text-field">
+        </p>
+        <p>
+            <input type="submit" value="send email" class="button submit">
+        </p>
+    </form>
+</div>
+</body>
+</html>
