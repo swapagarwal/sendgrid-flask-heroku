@@ -27,7 +27,7 @@ def mail():
         return """
         <html>
            <body>
-              <form action = "http://localhost:5000/" method = "POST">
+              <form method = "POST">
                  <p>From: <input type = "text" name = "from_email" value="test@example.com" style="width: 500px;" /></p>
                  <p>To: <input type = "text" name = "to_email" value="test@example.com" style="width: 500px;" /></p>
                  <p>Subject: <input type = "text" name = "subject" value="Sending with SendGrid is Fun" style="width: 500px;" /></p>
