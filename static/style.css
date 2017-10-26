@@ -1,5 +1,17 @@
 body {
     font-family: Tahoma, Verdana, Helvetica, sans;
+    font-size: 16px;
+    line-height: 20px;
+    color: #333;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+a, a:visited, a:hover, a:active, a:focus {
+    color: #333;
+    text-decoration: none;
 }
 
 .page-wrapper {
@@ -14,6 +26,7 @@ body {
 }
 
 .button, .text-field {
+    font-size: 16px;
     padding: 8px 12px;
     border: 1px solid #777;
     border-radius: 2px;
