@@ -40,8 +40,9 @@ def mail():
                  <p><input type = "submit" value = "send email" /></p>
               </form>
            </body>
-        </html>
+        </html
         """
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=True)
