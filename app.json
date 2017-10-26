@@ -1,0 +1,13 @@
+{
+  "name": "sendgrid-flask-heroku",
+  "description": "Try out SendGrid by sending your first email within seconds with this minimalistic yet powerful integration",
+  "repository": "https://github.com/swapagarwal/sendgrid-flask-heroku",
+  "success_url": "/",
+  "env": {
+    "SENDGRID_API_KEY": {
+      "description": "SendGrid API Key can be created at https://app.sendgrid.com/settings/api_keys",
+      "required": true
+    }
+  },
+  "keywords": ["sendgrid", "flask", "heroku"]
+}
