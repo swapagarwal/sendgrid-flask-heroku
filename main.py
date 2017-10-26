@@ -1,6 +1,7 @@
 import os
 
 import sendgrid
+import re
 from flask import Flask, request
 from sendgrid.helpers.mail import *
 
@@ -8,10 +9,14 @@ SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
 
 app = Flask(__name__)
 
+def checkSendGridKey(key):
+    return re.match('^SG.[A-z0-9]{22}.[A-z0-9\-_]{43}$', key)
 
 @app.route("/", methods=["POST", "GET"])
 def mail():
     if request.method == "POST":
+        if not checkSendGridKey(SENDGRID_API_KEY):
+            return "Status Code: 400" 
         sg = sendgrid.SendGridAPIClient(apikey=SENDGRID_API_KEY)
         from_email = Email(request.form.get("from_email"))
         to_email = Email(request.form.get("to_email"))
@@ -37,7 +42,6 @@ def mail():
            </body>
         </html>
         """
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=True)
