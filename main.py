@@ -4,7 +4,7 @@ import sendgrid
 from flask import Flask, request, render_template
 from sendgrid.helpers.mail import *
 
-SENDGRID_API_KEY = "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"
+SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
 app = Flask(__name__)
 
 
