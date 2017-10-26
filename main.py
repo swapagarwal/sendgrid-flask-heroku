@@ -40,7 +40,7 @@ def mail():
                  <p><input type = "submit" value = "send email" /></p>
               </form>
            </body>
-        </html
+        </html>
         """
 
 
