@@ -5,6 +5,7 @@ from flask import Flask, request
 from sendgrid.helpers.mail import *
 
 SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
+
 app = Flask(__name__)
 
 
@@ -39,4 +40,4 @@ def mail():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=True)
