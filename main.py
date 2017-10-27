@@ -25,17 +25,243 @@ def mail():
             return "Status Code: " + str(response.status_code)
     else:
         return """
-        <html>
-           <body>
-              <form method = "POST">
-                 <p>From: <input type = "text" name = "from_email" value="test@example.com" style="width: 500px;" /></p>
-                 <p>To: <input type = "text" name = "to_email" value="test@example.com" style="width: 500px;" /></p>
-                 <p>Subject: <input type = "text" name = "subject" value="Sending with SendGrid is Fun" style="width: 500px;" /></p>
-                 <p>Content: <input type ="text" name = "content" value="and easy to do anywhere, even with Python" style="width: 500px;" /></p>
-                 <p><input type = "submit" value = "send email" /></p>
-              </form>
-           </body>
-        </html>
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <style>
+                    * {
+                      margin:0;
+                      padding: 0;
+                    }
+
+                   
+                    ::-webkit-input-placeholder { /* WebKit browsers */
+                    font-family: 'Source Sans Pro', sans-serif;
+                      color:    #fafafa;
+                    font-weight: 300;
+                  }
+                  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                    font-family: 'Source Sans Pro', sans-serif;
+                     color:    #fafafa;
+                     opacity:  1;
+                    font-weight: 300;
+                  }
+                  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+                    font-family: 'Source Sans Pro', sans-serif;
+                     color:    #fafafa;
+                     opacity:  1;
+                    font-weight: 300;
+                  }
+                  :-ms-input-placeholder { /* Internet Explorer 10+ */
+                    font-family: 'Source Sans Pro', sans-serif;
+                     color:    #fafafa;
+                    font-weight: 300;
+                  }
+                    /*****
+                      ========BUTTON========
+                    *****/
+
+                    .btn {
+                      padding: 1em;
+                      margin: 1em;
+                      border: none;
+                      border-radius: 3px;
+                      color: rgba(0,0,0,.9);
+                      outline: none;
+                    }
+
+                    .btn:hover {
+                      cursor: pointer;
+                      background: rgba(0,0,0,.4);
+                      color: white;
+                    }
+                    /* inputs */
+                    input:not([type]),
+                    input[type=text],
+                    input[type=password],
+                    input[type=email],
+                    input[type=url],
+                    input[type=time],
+                    input[type=date],
+                    input[type=datetime],
+                    input[type=datetime-local],
+                    input[type=tel],
+                    input[type=number],
+                    input[type=search], textarea {
+                      background-color: transparent;
+                      outline: none;
+                      border: 1px solid #bdbdbd;
+                      border-radius: 5px;
+                      width: 100%;
+                      font-size: 16px;
+                      padding: 12px 20px 12px 40px;
+                      border: 1px solid #ddd;
+                      margin-bottom: 12px;
+                      transition: all 0.3s;
+                      color: #fafafa;
+                    }
+
+                    body {
+                      background: #14243d;
+                      background: radial-gradient(ellipse at center, #14243d 0%, #030611 100%);
+                    }
+
+                    .btn {
+                      background: #14243d;
+                    }
+
+                    .card {
+                      margin:0 auto; margin-top: 3em; height: 300px; width: 40%; padding: 1em; text-align: center;
+                    }
+
+                    h1 {
+                      font-weight:lighter; color: #fafafa; font-size: 3em; font-family: Castellar;
+                    }
+                    span.logo {
+                      margin-top: -4em;
+                    }
+
+                  @media only screen
+                  and (min-device-width: 320px)
+                  and (max-device-width: 480px)
+                  and (-webkit-min-device-pixel-ratio: 2)
+                   {
+                        ::-webkit-input-placeholder { /* WebKit browsers */
+                    font-family: 'Source Sans Pro', sans-serif;
+                      color:    #eee;
+                    font-weight: 300;
+                  }
+                  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                    font-family: 'Source Sans Pro', sans-serif;
+                     color:    #eee;
+                     opacity:  1;
+                    font-weight: 300;
+                  }
+                  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+                    font-family: 'Source Sans Pro', sans-serif;
+                     color:    #eee;
+                     opacity:  1;
+                    font-weight: 300;
+                  }
+                  :-ms-input-placeholder { /* Internet Explorer 10+ */
+                    font-family: 'Source Sans Pro', sans-serif;
+                     color:    #eee;
+                    font-weight: 300;
+                  }
+
+                    span.logo {
+                      font-size: 2em;
+                      margin-left: 4em;
+                      margin-top:-4.5em;
+                    }
+                    h1 {
+                      font-size: 2em;
+                      color: #fff;
+                    }
+                    .card {
+                      width: 90%;
+                      height: 490px;
+                      margin-top: 3em;
+                      background: none;
+                      box-shadow: none;
+                    }
+                  
+                    input[type="text"],input[type="email"],input[type="password"] {
+                      /*padding: 1em;*/
+                      font-size: 1em;
+                      width: 100%;
+                      color: #eee;
+                    }
+
+                    p {
+                      font-size: 1em;
+                      padding: 1em;
+                      color: #eee;
+                    }
+
+                    .btn {
+                      font-size: 1em;
+                    }
+
+                  }
+
+
+
+                  @media only screen
+                  and (min-device-width: 768px)
+                  and (max-device-width: 1024px)
+                  and (-webkit-min-device-pixel-ratio: 1)
+                   {
+                    ::-webkit-input-placeholder { /* WebKit browsers */
+                    font-family: 'Source Sans Pro', sans-serif;
+                      color:    #eee;
+                    font-weight: 300;
+                    }
+                    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                      font-family: 'Source Sans Pro', sans-serif;
+                       color:    #eee;
+                       opacity:  1;
+                      font-weight: 300;
+                    }
+                    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+                      font-family: 'Source Sans Pro', sans-serif;
+                       color:    #eee;
+                       opacity:  1;
+                      font-weight: 300;
+                    }
+                    :-ms-input-placeholder { /* Internet Explorer 10+ */
+                      font-family: 'Source Sans Pro', sans-serif;
+                       color:    #eee;
+                      font-weight: 300;
+                    }
+                    span.logo {
+                      margin-top:-4.5em;
+                      margin-left: 1em;
+                    }
+                    h1 {
+                      font-size: 2em;
+                      color: #fff;
+                    }
+                    .card {
+                      width: 90%;
+                      height: 650px;
+                      background: none;
+                    }
+
+                    input[type="text"],input[type="email"],input[type="password"] {
+                      padding: 1em;
+                      font-size: 1.3em;
+                    }
+
+                    p {
+                      font-size: 2em;
+                      padding: 1em;
+                      color: #eee;
+                    }
+
+                    .btn {
+                      font-size: 2em;
+                    }
+                  }
+                </style>
+                <title>SendGrid</title>
+            </head>
+            <body>
+            <div class="card white shadow-2">
+              <div class="contents">
+                <h1>SendGrid</h1>
+                <form method = "POST">
+                      
+                   <input type = "text" name = "from_email" placeholder="From" style="margin-top: 4em;" />
+                   <input type = "text" name = "to_email" placeholder="To" />
+                   <input type = "text" name = "subject" placeholder="Subject" />
+                   <textarea name="content" placeholder="Your Contents here.." rows="10" ></textarea>
+                   <input type = "submit" placeholder = "send email" class="btn" />
+                </form>
+              </div>
+            </div>
+            </body>
+            </html>
         """
 
 
