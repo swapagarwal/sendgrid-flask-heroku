@@ -4,7 +4,6 @@ import sendgrid
 from flask import Flask, request
 from sendgrid.helpers.mail import *
 
-SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
 
 app = Flask(__name__)
 
@@ -12,6 +11,9 @@ app = Flask(__name__)
 @app.route("/", methods=["POST", "GET"])
 def mail():
     if request.method == "POST":
+        SENDGRID_API_KEY = request.form.get("sendgrid_api_key")
+        if not SENDGRID_API_KEY:
+            SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
         sg = sendgrid.SendGridAPIClient(apikey=SENDGRID_API_KEY)
         from_email = Email(request.form.get("from_email"))
         to_email = Email(request.form.get("to_email"))
@@ -32,6 +34,7 @@ def mail():
                  <p>To: <input type = "text" name = "to_email" value="test@example.com" style="width: 500px;" /></p>
                  <p>Subject: <input type = "text" name = "subject" value="Sending with SendGrid is Fun" style="width: 500px;" /></p>
                  <p>Content: <input type ="text" name = "content" value="and easy to do anywhere, even with Python" style="width: 500px;" /></p>
+                 <p>Sendgrid API Key: <input type ="text" name = "sendgrid_api_key" placeholder="Provide Sendgrid API Key" style="width: 500px;" /></p>
                  <p><input type = "submit" value = "send email" /></p>
               </form>
            </body>
