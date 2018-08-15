@@ -28,8 +28,8 @@ def mail():
         <html>
            <body>
               <form method = "POST">
-                 <p>From: <input type = "text" name = "from_email" value="test@example.com" style="width: 500px;" /></p>
-                 <p>To: <input type = "text" name = "to_email" value="test@example.com" style="width: 500px;" /></p>
+                 <p>From: <input type = "text" name = "from_email" value="test@example.com" style="width: 500px;"/></p>
+                 <p>To: <input type = "text" name = "to_email" value="test@example.com" style="width: 500px;" autofocus/></p>
                  <p>Subject: <input type = "text" name = "subject" value="Sending with SendGrid is Fun" style="width: 500px;" /></p>
                  <p>Content: <input type ="text" name = "content" value="and easy to do anywhere, even with Python" style="width: 500px;" /></p>
                  <p><input type = "submit" value = "send email" /></p>
