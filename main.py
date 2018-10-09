@@ -28,11 +28,47 @@ def mail():
         <html>
            <body>
               <form method = "POST">
-                 <p>From: <input type = "text" name = "from_email" value="test@example.com" style="width: 500px;" /></p>
-                 <p>To: <input type = "text" name = "to_email" value="test@example.com" style="width: 500px;" /></p>
-                 <p>Subject: <input type = "text" name = "subject" value="Sending with SendGrid is Fun" style="width: 500px;" /></p>
-                 <p>Content: <input type ="text" name = "content" value="and easy to do anywhere, even with Python" style="width: 500px;" /></p>
-                 <p><input type = "submit" value = "send email" /></p>
+                    <p><span style="
+                        font-size: 1em;
+                        font-family: sans-serif;
+                        color: #3e4eb8;
+                        border-left: 10px solid #3e4eb8;
+                        padding: 10px;
+                        margin: 10px 0;
+                    ">From</span><input type="text" name="from_email" value="test@example.com" style="display: block;margin: 10px 0;border: 2px solid #3F51B5;padding: 10px;font-size: 1em;"></p>
+                    <p><span style="
+                        font-size: 1em;
+                        font-family: sans-serif;
+                        color: #3e4eb8;
+                        border-left: 10px solid #3e4eb8;
+                        padding: 10px;
+                        margin: 10px 0;
+                    ">To</span><input type="text" name="to_email" value="test@example.com" style="display: block;margin: 10px 0;border: 2px solid #3F51B5;padding: 10px;font-size: 1em;"></p>
+                    <p><span style="
+                        font-size: 1em;
+                        font-family: sans-serif;
+                        color: #3e4eb8;
+                        border-left: 10px solid #3e4eb8;
+                        padding: 10px;
+                        margin: 10px 0;
+                    ">Subject</span><input type="text" name="subject" value="Sending with SendGrid is Fun" style="display: block;margin: 10px 0;border: 2px solid #3F51B5;padding: 10px;font-size: 1em;width: 70%;"></p>
+                    <p><span style="
+                        font-size: 1em;
+                        font-family: sans-serif;
+                        color: #3e4eb8;
+                        border-left: 10px solid #3e4eb8;
+                        padding: 10px;
+                        margin: 10px 0;
+                    ">Message</span><input type="text" name="content" value="and easy to do anywhere, even with Python" style="display: block;margin: 10px 0;border: 2px solid #3F51B5;padding: 10px;font-size: 1em;width: 70%;">
+
+                      <input type="submit" value="send email" style="
+                        font-size: 1em;
+                        border: none;
+                        padding: 10px;
+                        color: white;
+                        background: #3d4abb;">
+
+                    </p>
               </form>
            </body>
         </html>
