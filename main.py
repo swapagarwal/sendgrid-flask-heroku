@@ -1,11 +1,10 @@
 import os
 
 import sendgrid
-from flask import Flask, request
+from flask import Flask, request, render_template
 from sendgrid.helpers.mail import *
 
 SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
-
 app = Flask(__name__)
 
 
@@ -18,25 +17,14 @@ def mail():
         subject = request.form.get("subject")
         content = Content("text/plain", request.form.get("content"))
         mail = Mail(from_email, subject, to_email, content)
-        response = sg.client.mail.send.post(request_body=mail.get())
-        if response.status_code == 202:
-            return "Email sent successfully!"
-        else:
-            return "Status Code: " + str(response.status_code)
+        
+        try:
+            response = sg.client.mail.send.post(request_body=mail.get())
+            return render_template('success.html')
+        except:
+            return render_template('error.html', status_code="400")
     else:
-        return """
-        <html>
-           <body>
-              <form method = "POST">
-                 <p>From: <input type = "text" name = "from_email" value="test@example.com" style="width: 500px;" /></p>
-                 <p>To: <input type = "text" name = "to_email" value="test@example.com" style="width: 500px;" /></p>
-                 <p>Subject: <input type = "text" name = "subject" value="Sending with SendGrid is Fun" style="width: 500px;" /></p>
-                 <p>Content: <input type ="text" name = "content" value="and easy to do anywhere, even with Python" style="width: 500px;" /></p>
-                 <p><input type = "submit" value = "send email" /></p>
-              </form>
-           </body>
-        </html>
-        """
+        return render_template('index.html')
 
 
 if __name__ == "__main__":
