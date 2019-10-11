@@ -2,7 +2,7 @@ import os
 
 import sendgrid
 from flask import Flask, request
-from sendgrid.helpers.mail import *
+from sendgrid.helpers.mail import Content, From, Mail, MimeType, Subject, To
 
 SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
 
@@ -12,13 +12,13 @@ app = Flask(__name__)
 @app.route("/", methods=["POST", "GET"])
 def mail():
     if request.method == "POST":
-        sg = sendgrid.SendGridAPIClient(apikey=SENDGRID_API_KEY)
-        from_email = Email(request.form.get("from_email"))
-        to_email = Email(request.form.get("to_email"))
-        subject = request.form.get("subject")
-        content = Content("text/plain", request.form.get("content"))
-        mail = Mail(from_email, subject, to_email, content)
-        response = sg.client.mail.send.post(request_body=mail.get())
+        sg = sendgrid.SendGridAPIClient(SENDGRID_API_KEY)
+        message = Mail()
+        message.from_email = From(request.form.get("from_email"))
+        message.to = To(request.form.get("to_email"))
+        message.subject = Subject(request.form.get("subject"))
+        message.content = Content(MimeType.text, request.form.get("content"))
+        response = sg.send(message)
         if response.status_code == 202:
             return "Email sent successfully!"
         else:
