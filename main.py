@@ -12,7 +12,12 @@ app = Flask(__name__)
 @app.route("/", methods=["POST", "GET"])
 def mail():
     if request.method == "POST":
-        sg = sendgrid.SendGridAPIClient(apikey=SENDGRID_API_KEY)
+        if request.form.get("api_key"):
+            api_key_selected = request.form.get("api_key")
+        else:
+            api_key_selected = SENDGRID_API_KEY
+
+        sg = sendgrid.SendGridAPIClient(apikey=api_key_selected)
         from_email = Email(request.form.get("from_email"))
         to_email = Email(request.form.get("to_email"))
         subject = request.form.get("subject")
@@ -28,6 +33,7 @@ def mail():
         <html>
            <body>
               <form method = "POST">
+                 <p>Api_Key: <input type = "text" name = "api_key" value="" style="width: 500px;" /></p>
                  <p>From: <input type = "text" name = "from_email" value="test@example.com" style="width: 500px;" /></p>
                  <p>To: <input type = "text" name = "to_email" value="test@example.com" style="width: 500px;" /></p>
                  <p>Subject: <input type = "text" name = "subject" value="Sending with SendGrid is Fun" style="width: 500px;" /></p>
